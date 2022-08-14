@@ -9,23 +9,15 @@ using System.Linq;
 using UnityEngine.UIElements;
 public class NobelGameEditorTab : VisualElement
 {
-    enum Tab
-    {
-        ProjectSetting,
-        SceneMap,
-    }
-    private Tab _tab = Tab.ProjectSetting;
+
+    private Dictionary<EditorTab, VisualElement> TabDic;
 
     private List<Button> _buttons = new List<Button>();
 
-   
 
-
-
-    public NobelGameEditorTab()
+    private void OnEnable()
     {
-       
-        foreach (string _tmp in System.Enum.GetNames(typeof(Tab)))
+        foreach (string _tmp in System.Enum.GetNames(typeof(EditorTab)))
         {
             Button _button = new Button();
             _button.text = _tmp.ToString();
@@ -35,7 +27,6 @@ public class NobelGameEditorTab : VisualElement
             SetPadding(_button, 0); // 子要素のPaddingはUSSで変更されないようにスクリプトで定義
             Add(_button);
         }
-        
     }
 
     private static void SetMargin(VisualElement element, float px)
@@ -53,4 +44,12 @@ public class NobelGameEditorTab : VisualElement
         element.style.paddingRight = px;
         element.style.paddingBottom = px;
     }
+}
+
+
+
+public enum EditorTab
+{
+    ProjectSetting,
+    SceneMap,
 }

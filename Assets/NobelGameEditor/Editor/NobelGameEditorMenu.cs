@@ -3,7 +3,9 @@
 /// </summary>
 
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 using System.Linq;
 public class NobelGameEditorMenu : EditorWindow
 {
@@ -14,6 +16,7 @@ public class NobelGameEditorMenu : EditorWindow
     {
 
         GetWindow<NobelGameEditorMenu>("NobelGameEditor");
+        
         /*NobelGameEditorMenu nobelgameeditorMenu = CreateInstance<NobelGameEditorMenu>();
         nobelgameeditorMenu.Show();
         nobelgameeditorMenu.titleContent = new UnityEngine.GUIContent("SceneNode");*/
@@ -32,7 +35,8 @@ public class NobelGameEditorMenu : EditorWindow
         {
             style = {
                 flexGrow = 1,
-                backgroundColor = new Color(0.1f,0.1f,0.1f)
+                backgroundColor = new Color(0.1f,0.1f,0.1f),
+                display = DisplayStyle.None,
             }
         };
         rootVisualElement.Add(graphView);
